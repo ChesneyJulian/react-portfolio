@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      dropShadow: {
+        '3xl': '0 35px 35px rgba(6, 184, 113, .25)'
+      }
     },
   },
   plugins: [],

@@ -8,7 +8,7 @@ import './index.css'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Portfolio from './pages/Portfolio.jsx'
-import Landing from './pages/Landing.jsx'
+// import Landing from './pages/Landing.jsx'
 
 // Define the accessible routes, and which components respond to which URL
 const router = createBrowserRouter([
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Landing />,
+        element: <About />,
       },
       {
         path: '/portfolio',
