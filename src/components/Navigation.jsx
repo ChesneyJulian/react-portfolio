@@ -21,7 +21,7 @@ function Navigation () {
   
   return (
     <div className="mx-auto mt-10 lg:mx-0 text-left ">
-      <div className="grid grid-cols-1 gap-x-8 gap-y-6 lg:flex lg:gap-x-12 justify-end">
+      <div className="grid grid-cols-1 gap-x-8 gap-y-6 md:flex lg:gap-x-12 md:justify-start lg:justify-end">
         {navItems.map((item) => (
           <a key={item.name} href={item.href}>{item.name}</a>
         ))}

@@ -11,7 +11,7 @@ function Header () {
             Full Stack Web Developer
           </h3>
         </div>
-        <div className='col-span-3 lg:col-span-6'>
+        <div className='col-span-12 lg:col-span-6'>
           <Navigation />
         </div>
       </div>
