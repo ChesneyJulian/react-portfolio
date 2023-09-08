@@ -15,7 +15,7 @@ function Resume() {
       </div>
       <div>
         <h4 className='text-2xl my-8 font-semibold'>Skills</h4>
-        <ul className='mx-4 grid grid-flow-col grid-rows-4 gap-4 text-gray-300'>
+        <ul className='mx-4 grid md:grid-flow-col md:grid-rows-4 gap-4 text-gray-400'>
           <li className="font-medium">&#x2713; JavaScript</li>
           <li className="font-medium">&#x2713; HTML</li>
           <li className="font-medium">&#x2713; CSS</li>

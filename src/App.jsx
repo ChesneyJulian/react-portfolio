@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Header from './components/Header'
 import Navigation from './components/Navigation'
+import Footer from './components/Footer'
 
 import About from './components/About';
 import Portfolio from './components/Portfolio';
@@ -14,7 +15,7 @@ function App() {
   const [ currentPage, setCurrentPage ] = useState('About');
   return (
     <>
-      <main className="text-white">
+      <main className="text-gray-200">
         <div className="relative isolate overflow-y-auto overflow-x-hidden bg-gray-800 py-4 h-screen">
           <div
             className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-2xl"
@@ -52,6 +53,9 @@ function App() {
               {currentPage === 'Resume' && <Resume />}
             </div>
           </section>
+          <div className='flex flex-row justify-center'>
+            <Footer />
+          </div>
         </div>
       </main>
     </>

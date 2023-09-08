@@ -35,7 +35,7 @@ function Navigation ({ setCurrentPage, currentPage }) {
       ) 
     } else {
       return (
-        <a className="text-base text-gray-300 hover:text-[#057d69]" onClick={(e) => handleClick(e, item.name)} key={item.name} href={item.href}>{item.name}</a>
+        <a className="text-base text-gray-400 hover:text-[#057d69]" onClick={(e) => handleClick(e, item.name)} key={item.name} href={item.href}>{item.name}</a>
       )
     }
   }
