@@ -1,6 +1,6 @@
 const navItems = [
   {
-    name: 'About Me',
+    name: 'About',
     href: '/about'
   },
   {
@@ -8,7 +8,7 @@ const navItems = [
     href: '/portfolio'
   },
   {
-    name: 'Contact Me',
+    name: 'Contact',
     href: '/contact'
   },
   {
@@ -17,13 +17,17 @@ const navItems = [
   },
 ]
 
-function Navigation () {
-  
+// eslint-disable-next-line react/prop-types
+function Navigation ({ setCurrentPage }) {
+  function handleClick(e, page) {
+    e.preventDefault();
+    setCurrentPage(page);
+  }
   return (
     <div className="mx-auto mt-10 lg:mx-0 text-left ">
-      <div className="grid grid-cols-1 gap-x-8 gap-y-6 md:flex lg:gap-x-12 md:justify-start lg:justify-end">
+      <div className="grid grid-cols-1 gap-x-8 gap-y-4 md:flex lg:gap-x-12 md:justify-start lg:justify-end">
         {navItems.map((item) => (
-          <a key={item.name} href={item.href}>{item.name}</a>
+          <a className="text-base" onClick={(e) => handleClick(e, item.name)} key={item.name} href={item.href}>{item.name}</a>
         ))}
       </div>
     </div>

@@ -1,9 +1,16 @@
-import { Outlet } from 'react-router-dom';
+import { useState } from 'react'
+
 import Header from './components/Header'
+import Navigation from './components/Navigation'
+
+import About from './pages/About';
+import Portfolio from './pages/Portfolio';
+import Contact from './pages/Contact';
+
 import './App.css'
 
 function App() {
-
+  const [ currentPage, setCurrentPage ] = useState('About');
   return (
     <>
       <main className="text-white">
@@ -32,9 +39,14 @@ function App() {
           </div>
           <div className='col-span-12 container mx-auto h-[25%] mb-12'>
             <Header />
+            <div className='col-span-12 lg:col-span-6'>
+              <Navigation setCurrentPage={setCurrentPage}/>
+            </div>
           </div>
           <div className='container mx-auto col-span-12 row-span-6 min-h-full w-[85%] bg-gray-900 p-12 drop-shadow-3xl rounded'>
-            <Outlet />
+            {currentPage === 'About' && <About /> }
+            {currentPage === 'Contact' && <Contact />}
+            {currentPage === 'Portfolio' && <Portfolio />}
           </div>
         </div>
       </main>
