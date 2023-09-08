@@ -12,16 +12,16 @@ const projectData = [
     url: 'https://cdgonzo23.github.io/night-in-generator/',
   },
   {
-    name: 'Tech Blog',
-    image: '/images/tech-blog-screenshot.png',
-    github: 'https://github.com/ChesneyJulian/tech-blog',
-    url: 'https://mvc-tech-blog-2023-86b27f515ccd.herokuapp.com/',
-  },
-  {
     name: 'J.A.T.E.',
     image: '/images/pwa-text-editor-screenshot.png',
     github: 'https://github.com/ChesneyJulian/PWA-text-editor',
     url: 'https://jate-pwa-2023-433da1eb4458.herokuapp.com/',
+  },
+  {
+    name: 'Tech Blog',
+    image: '/images/tech-blog-screenshot.png',
+    github: 'https://github.com/ChesneyJulian/tech-blog',
+    url: 'https://mvc-tech-blog-2023-86b27f515ccd.herokuapp.com/',
   },
   {
     name: 'Note Taker App',
@@ -45,7 +45,7 @@ function Project() {
         <div key={item.name} className="container relative h-auto w-auto m-4">
             <img className="aspect-square object-cover object-top rounded z-10" src={item.image}></img>
             <div className="overlay opacity-0 hover:opacity-90 bg-gray-800 absolute top-0 h-full w-full transition duration-300 ease-in-out">
-                <div className="flex flex-col items-start justify-end h-full w-full tracking-tight px-2 pb-8">
+                <div className="flex flex-col items-start justify-end h-full w-full tracking-tight px-2 pb-8 leading-7">
                   <p className="text-xl font-semibold underline underline-offset-4 decoration-1">{item.name}</p>
                   <a target="_blank" rel="noreferrer" href={item.github} className="text-[#11f0b5] hover:text-[#057d69]">GitHub Repository</a>
                   <a target="_blank" rel="noreferrer" href={item.url} className="text-[#11f0b5] hover:text-[#057d69]">Deployed Application</a>
