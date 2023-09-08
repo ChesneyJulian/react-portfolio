@@ -6,6 +6,7 @@ import Navigation from './components/Navigation'
 import About from './components/About';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
+import Resume from './components/Resume';
 
 import './App.css'
 
@@ -48,6 +49,7 @@ function App() {
               {currentPage === 'About' && <About /> }
               {currentPage === 'Contact' && <Contact />}
               {currentPage === 'Portfolio' && <Portfolio />}
+              {currentPage === 'Resume' && <Resume />}
             </div>
           </section>
         </div>
