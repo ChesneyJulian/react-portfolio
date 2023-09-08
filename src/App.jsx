@@ -3,9 +3,9 @@ import { useState } from 'react'
 import Header from './components/Header'
 import Navigation from './components/Navigation'
 
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Contact from './pages/Contact';
+import About from './components/About';
+import Portfolio from './components/Portfolio';
+import Contact from './components/Contact';
 
 import './App.css'
 
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <main className="text-white">
-        <div className="relative isolate overflow-y-auto overflow-x-hidden bg-gray-800 py-4 h-screen grid grid-flow-row lg:grid-cols-12">
+        <div className="relative isolate overflow-y-auto overflow-x-hidden bg-gray-800 py-4 h-screen flex flex-col">
           <div
             className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-2xl"
             aria-hidden="true">
@@ -37,13 +37,13 @@ function App() {
               }}
             />
           </div>
-          <div className='col-span-12 container mx-auto h-[25%] mb-12'>
-            <Header />
-            <div className='col-span-12 lg:col-span-6'>
+          <div className='container mx-auto h-[25%] my-8 px-6 lg:px-8 '>
+            <div className='lg:flex lg:flex-row items-end'>
+              <Header />
               <Navigation setCurrentPage={setCurrentPage}/>
             </div>
           </div>
-          <div className='container mx-auto col-span-12 row-span-6 min-h-full w-[85%] bg-gray-900 p-12 drop-shadow-3xl rounded'>
+          <div className='container mx-auto my-8 row-span-6 min-h-auto w-[80%] bg-gray-900 p-12 drop-shadow-3xl rounded'>
             {currentPage === 'About' && <About /> }
             {currentPage === 'Contact' && <Contact />}
             {currentPage === 'Portfolio' && <Portfolio />}
