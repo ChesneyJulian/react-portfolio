@@ -6,7 +6,7 @@ export default function Portfolio() {
       <div className='mb-12'>  
         <h3 className='text-3xl'>Portfolio</h3>
       </div>
-      <div>
+      <div className='grid grid-cols-3'>
        <Project />
       </div>
     </>
