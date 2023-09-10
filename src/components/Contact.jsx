@@ -1,5 +1,25 @@
 
 export default function Contact() {
+  const emailValidation = document.getElementById('email-validation')
+  const instruction = document.getElementById('instruction')
+  const validateEmail = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+
+  const checkInput = (inputItem) => {
+    if (!(document.getElementById(`${inputItem}`).value)) {
+     instruction.innerHTML = `All fields are required.`;
+    } else {
+      instruction.innerHTML = ``;
+    }
+
+    if (inputItem === 'email' && (document.getElementById(`${inputItem}`).value)) {
+      if (validateEmail.test(document.getElementById(`${inputItem}`).value) === false) {
+        emailValidation.innerHTML = `Please enter a valid email.`;
+      } else {
+        emailValidation.innerHTML = ``;
+      }
+    }
+  }
+
   return (
     <div>
       <h3 className='text-3xl font-semibold mb-12'>Contact Me</h3>
@@ -10,6 +30,7 @@ export default function Contact() {
               Your Name
               <div className="mt-2">
                 <input
+                  onBlur={() => checkInput('name')}
                   id="name"
                   name="name"
                   type="text"
@@ -24,6 +45,7 @@ export default function Contact() {
               Email Address
               <div className="mt-2">
                 <input
+                  onBlur={() => checkInput('email')}
                   id="email"
                   name="email"
                   type="email"
@@ -38,6 +60,7 @@ export default function Contact() {
               Message
               <div className="mt-2">
                 <textarea
+                  onBlur={() => checkInput('message')}
                   id="message"
                   name="message"
                   rows={3}
@@ -50,6 +73,8 @@ export default function Contact() {
           </div>
         </div>
         <div>
+          <p className="text-gray-400 m-2" id="instruction"></p>
+          <p className="text-gray-400 m-2" id="email-validation"></p>
           <button
           type="submit"
           onClick={(e) => e.preventDefault()}
