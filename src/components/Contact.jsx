@@ -1,23 +1,38 @@
+import { useState } from 'react'
+import { Instruction, EmailInvalid } from './UI/Informants'
+import { SubmitBtn } from './UI/Buttons'
 
 export default function Contact() {
-  const emailValidation = document.getElementById('email-validation')
-  const instruction = document.getElementById('instruction')
-  const validateEmail = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+  const [ nameValue, setNameValue ] = useState('');
+  const [ emailValue, setEmailValue ] = useState('');
+  const [ messageValue, setMesssageValue ] = useState('');
+  const [ valid, setValid ] = useState(false);
+  const [ insDisplay, setInstructionDisplay ] = useState(false);
 
-  const checkInput = (inputItem) => {
-    if (!(document.getElementById(`${inputItem}`).value)) {
-     instruction.innerHTML = `All fields are required.`;
-    } else {
-      instruction.innerHTML = ``;
+  const checkInsDisplay = () => {
+    if (insDisplay === false ) {
+      return <Instruction />
     }
-
-    if (inputItem === 'email' && (document.getElementById(`${inputItem}`).value)) {
-      if (validateEmail.test(document.getElementById(`${inputItem}`).value) === false) {
-        emailValidation.innerHTML = `Please enter a valid email.`;
-      } else {
-        emailValidation.innerHTML = ``;
+    if (valid === false) {
+      return <EmailInvalid />
+    }
+  }
+  
+  const validateEmail = (str) => {
+    setEmailValue(str);
+    if (/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(str) === true) {
+      setValid(true);
+    } else {
+      setValid(false);
+    }
+  }
+  const checkInput = () => {
+    if ( !nameValue || !emailValue || !messageValue) {
+      if (valid === false) {
+        return <EmailInvalid />
       }
     }
+    setInstructionDisplay(true);
   }
 
   return (
@@ -30,6 +45,8 @@ export default function Contact() {
               Your Name
               <div className="mt-2">
                 <input
+                  value={nameValue}
+                  onChange={(e) => setNameValue(e.target.value)}
                   onBlur={() => checkInput('name')}
                   id="name"
                   name="name"
@@ -45,6 +62,8 @@ export default function Contact() {
               Email Address
               <div className="mt-2">
                 <input
+                  value={emailValue}
+                  onChange={(e) => validateEmail(e.target.value)}
                   onBlur={() => checkInput('email')}
                   id="email"
                   name="email"
@@ -60,27 +79,23 @@ export default function Contact() {
               Message
               <div className="mt-2">
                 <textarea
+                  value={messageValue}
+                  onChange={(e) => setMesssageValue(e.target.value)}
                   onBlur={() => checkInput('message')}
                   id="message"
                   name="message"
                   rows={3}
                   type="text"
                   className="block w-full rounded bg-gray-200 text-gray-900 border-0 p-1.5 ring-1 ring-inset ring-[#11f0b5] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#11f0b5] sm:text-sm sm:leading-7"
-                  defaultValue={''}
+                  
                   />
               </div>
             </label>
           </div>
         </div>
         <div>
-          <p className="text-gray-400 m-2" id="instruction"></p>
-          <p className="text-gray-400 m-2" id="email-validation"></p>
-          <button
-          type="submit"
-          onClick={(e) => e.preventDefault()}
-          className="py-2 px-4 bg-[#057d69] hover:bg-[#05ab8f] rounded my-8" >
-            Submit
-          </button>
+          {checkInsDisplay()}
+          <SubmitBtn />
         </div>
       </form>
     </div>
