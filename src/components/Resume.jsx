@@ -1,5 +1,5 @@
 // import resumePdf to use for download
-import resumePdf from '/assets/Resume.pdf'
+import resumePdf from '../assets/Resume.pdf'
 // import Button from UI components to use for download button
 import Button from './UI/Button'
 
