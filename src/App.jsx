@@ -50,7 +50,7 @@ function App() {
               {currentPage === 'Resume' && <Resume />}
             </div>
           </section>
-          <div className='flex flex-row justify-center'>
+          <div className='flex flex-row justify-center mb-12'>
             {/* render Footer component */}
             <Footer />
           </div>
