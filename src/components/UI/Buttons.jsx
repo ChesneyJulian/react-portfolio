@@ -1,4 +1,4 @@
-export default function SubmitBtn () {
+function SubmitBtn () {
   return (
     <button
     type="submit"
@@ -8,3 +8,5 @@ export default function SubmitBtn () {
     </button>
   )
 }
+
+export default SubmitBtn;

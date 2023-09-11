@@ -1,23 +1,26 @@
 import { useState } from 'react'
 import { Instruction, EmailInvalid } from './UI/Informants'
-import { SubmitBtn } from './UI/Buttons'
+import SubmitBtn from './UI/Buttons'
 
 export default function Contact() {
   const [ nameValue, setNameValue ] = useState('');
   const [ emailValue, setEmailValue ] = useState('');
   const [ messageValue, setMesssageValue ] = useState('');
-  const [ valid, setValid ] = useState(false);
-  const [ insDisplay, setInstructionDisplay ] = useState(false);
+  const [ valid, setValid ] = useState(true);
+  const [ insDisplay, setInstructionDisplay ] = useState(true);
 
   const checkInsDisplay = () => {
     if (insDisplay === false ) {
       return <Instruction />
     }
+  }
+  
+  const checkEmailDisplay = () => {
     if (valid === false) {
       return <EmailInvalid />
     }
   }
-  
+
   const validateEmail = (str) => {
     setEmailValue(str);
     if (/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(str) === true) {
@@ -28,11 +31,10 @@ export default function Contact() {
   }
   const checkInput = () => {
     if ( !nameValue || !emailValue || !messageValue) {
-      if (valid === false) {
-        return <EmailInvalid />
-      }
+      setInstructionDisplay(false);
+    } else {
+      setInstructionDisplay(true);
     }
-    setInstructionDisplay(true);
   }
 
   return (
@@ -47,7 +49,7 @@ export default function Contact() {
                 <input
                   value={nameValue}
                   onChange={(e) => setNameValue(e.target.value)}
-                  onBlur={() => checkInput('name')}
+                  onBlur={() => checkInput()}
                   id="name"
                   name="name"
                   type="text"
@@ -64,7 +66,7 @@ export default function Contact() {
                 <input
                   value={emailValue}
                   onChange={(e) => validateEmail(e.target.value)}
-                  onBlur={() => checkInput('email')}
+                  onBlur={() => checkInput()}
                   id="email"
                   name="email"
                   type="email"
@@ -81,7 +83,7 @@ export default function Contact() {
                 <textarea
                   value={messageValue}
                   onChange={(e) => setMesssageValue(e.target.value)}
-                  onBlur={() => checkInput('message')}
+                  onBlur={() => checkInput()}
                   id="message"
                   name="message"
                   rows={3}
@@ -95,6 +97,7 @@ export default function Contact() {
         </div>
         <div>
           {checkInsDisplay()}
+          {checkEmailDisplay()}
           <SubmitBtn />
         </div>
       </form>
