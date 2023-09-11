@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import Header from './components/Header'
-import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 
 import About from './components/About';
@@ -41,12 +40,7 @@ function App() {
           </div>
           <section className='flex flex-col'>
             <div className='container mx-auto h-[25%] my-8 px-6 lg:px-8 '>
-              <div className='lg:flex lg:flex-row items-end'>
-                {/* render Header component */}
-                <Header />
-                {/* render Navigation component and pass setCurrentPage and currentPage as props */}
-                <Navigation setCurrentPage={setCurrentPage} currentPage={currentPage}/>
-              </div>
+              <Header setCurrentPage={setCurrentPage} currentPage={currentPage}/>
             </div>
             <div className='container mx-auto my-8 row-span-6 min-h-auto w-[80%] bg-gray-900 p-12 drop-shadow-3xl rounded'>
               {/* conditionally render About, Contact, Portfolio, or Resume sections depending on the state of currentPage */}
