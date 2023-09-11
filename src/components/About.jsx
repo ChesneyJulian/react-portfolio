@@ -3,7 +3,7 @@ export default function About() {
   return (
     <>
       <div className='mb-12 flex flex-row items-center'>  
-        <img className='rounded-full w-28 aspect-square object-cover object-top m-4' src="/src/assets/images/profile-img.jpeg" alt="headshot photo"></img>
+        <img className='rounded-full w-28 aspect-square object-cover object-top m-4' src="/assets/images/profile-img.jpeg" alt="headshot photo"></img>
         <h3 className='text-3xl font-semibold mx-2'>About Me</h3>
       </div>
       <div>
