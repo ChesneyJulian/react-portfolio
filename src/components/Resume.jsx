@@ -1,10 +1,14 @@
+// import resumePdf to use for download
 import resumePdf from '/assets/Resume.pdf'
+// import Button from UI components to use for download button
 import Button from './UI/Button'
+
 function Resume() {
   return (
     <>
       <h3 className='text-3xl font-semibold mb-8'>Resume</h3>
       <div className='mb-8'>
+        {/* link to download resume and render Button with props passed */}
         <a href={resumePdf} download='Chesney-Julian-Resume.pdf' className=''>
           <Button type='download' title='Download Resume' />
         </a>

@@ -1,4 +1,4 @@
-
+// function to render Header component
 function Header () {
   return (
     <div className="mx-auto container lg:mx-0 col-span-12 lg:col-span-6">

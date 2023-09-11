@@ -1,3 +1,4 @@
+// create array of objects to store data for each project, including url, image path, name, and github link
 const projectData = [
   {
     name: 'Maintenance Manatee',
@@ -42,6 +43,7 @@ function Project() {
   return (
     <>
       {projectData.map((item) => (
+        // for each item, return the following output to display project cards using the properties of each item
         <div key={item.name} className="container relative h-auto w-auto m-4">
             <img className="aspect-square object-cover object-top rounded z-10" src={item.image} alt={`image of ${item.name}`}></img>
             <div className="overlay opacity-0 hover:opacity-90 bg-gray-800 absolute top-0 h-full w-full transition duration-300 ease-in-out">

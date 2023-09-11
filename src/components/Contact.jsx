@@ -1,39 +1,53 @@
+// import useState
 import { useState } from 'react'
+// import instruction and emailInvalid from UI informants
 import { Instruction, EmailInvalid } from './UI/Informants'
+// import button from UI button
 import Button from './UI/Button'
 
+// function to render Contact component
 export default function Contact() {
+  // set up useState for nameValue, emailValue, messageValue, valid, and insDisplay
   const [ nameValue, setNameValue ] = useState('');
   const [ emailValue, setEmailValue ] = useState('');
   const [ messageValue, setMesssageValue ] = useState('');
+  // refers to validity of email
   const [ valid, setValid ] = useState(true);
-  const [ insDisplay, setInstructionDisplay ] = useState(true);
+  // refers to if the instruction display is needed
+  const [ insDisplay, setInstructionDisplay ] = useState(false);
 
+  // function to check if insDisplay is true and render Instruction component if so
   const checkInsDisplay = () => {
-    if (insDisplay === false ) {
+    if (insDisplay === true ) {
       return <Instruction />
     }
   }
-  
+  // function to check if valid is false and if so, render the EmailInvalid component
   const checkEmailDisplay = () => {
     if (valid === false) {
       return <EmailInvalid />
     }
   }
-
+  // function to check email input against regular expression for proper email formatting
   const validateEmail = (str) => {
+    // setEmailValue to input
     setEmailValue(str);
     if (/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(str) === true) {
+      // set valid true if passes
       setValid(true);
     } else {
+      // set valid false if fails
       setValid(false);
     }
   }
+  // function to check if any value in input is missing
   const checkInput = () => {
     if ( !nameValue || !emailValue || !messageValue) {
-      setInstructionDisplay(false);
-    } else {
+      // setInstructionDisplay to true if any is missing
       setInstructionDisplay(true);
+    } else {
+      // set instruction display to false if everything is present
+      setInstructionDisplay(false);
     }
   }
 
@@ -47,8 +61,11 @@ export default function Contact() {
               Your Name
               <div className="mt-2">
                 <input
+                  // set value to nameValue
                   value={nameValue}
+                  // on change event, setNameValue to the e.target.value
                   onChange={(e) => setNameValue(e.target.value)}
+                  // check input when input box loses focus
                   onBlur={() => checkInput()}
                   id="name"
                   name="name"
@@ -64,8 +81,11 @@ export default function Contact() {
               Email Address
               <div className="mt-2">
                 <input
+                // set value to email value
                   value={emailValue}
+                  // on change event, run validateEmail functioin to validate email and set as emailValue
                   onChange={(e) => validateEmail(e.target.value)}
+                  // check input when input box loses focus
                   onBlur={() => checkInput()}
                   id="email"
                   name="email"
@@ -81,8 +101,11 @@ export default function Contact() {
               Message
               <div className="mt-2">
                 <textarea
+                  // set value to messageValue
                   value={messageValue}
+                  // on change event, set messageValue to e.target.value
                   onChange={(e) => setMesssageValue(e.target.value)}
+                  // check input when input box loses focus
                   onBlur={() => checkInput()}
                   id="message"
                   name="message"
@@ -96,8 +119,11 @@ export default function Contact() {
           </div>
         </div>
         <div>
+          {/* run checkInsDisplay to render any instruction here */}
           {checkInsDisplay()}
+          {/* run checkEmailDisplay to render any email invalidity messages here */}
           {checkEmailDisplay()}
+          {/* render Button component for submit button */}
           <Button type='submit' title='Submit'/>
         </div>
       </form>

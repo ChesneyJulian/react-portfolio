@@ -1,3 +1,4 @@
+// function to render Footer component
 function Footer() {
   return (
     <div className="flex align-end gap-8">

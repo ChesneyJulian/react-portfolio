@@ -9,9 +9,9 @@ import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Resume from './components/Resume';
 
-import './App.css'
 
 function App() {
+  // initialize currentPage and setCurrentPage with useState; start state at 'About' so about page is rendered upon load
   const [ currentPage, setCurrentPage ] = useState('About');
   return (
     <>
@@ -42,11 +42,14 @@ function App() {
           <section className='flex flex-col'>
             <div className='container mx-auto h-[25%] my-8 px-6 lg:px-8 '>
               <div className='lg:flex lg:flex-row items-end'>
+                {/* render Header component */}
                 <Header />
+                {/* render Navigation component and pass setCurrentPage and currentPage as props */}
                 <Navigation setCurrentPage={setCurrentPage} currentPage={currentPage}/>
               </div>
             </div>
             <div className='container mx-auto my-8 row-span-6 min-h-auto w-[80%] bg-gray-900 p-12 drop-shadow-3xl rounded'>
+              {/* conditionally render About, Contact, Portfolio, or Resume sections depending on the state of currentPage */}
               {currentPage === 'About' && <About /> }
               {currentPage === 'Contact' && <Contact />}
               {currentPage === 'Portfolio' && <Portfolio />}
@@ -54,6 +57,7 @@ function App() {
             </div>
           </section>
           <div className='flex flex-row justify-center'>
+            {/* render Footer component */}
             <Footer />
           </div>
         </div>
