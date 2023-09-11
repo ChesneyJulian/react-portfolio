@@ -1,12 +1,12 @@
-function SubmitBtn () {
+function Button (props) {
   return (
     <button
-    type="submit"
+    type={props.type}
     onClick={(e) => e.preventDefault()}
     className="py-2 px-4 bg-[#057d69] hover:bg-[#05ab8f] rounded my-8" >
-      Submit
+      {props.title}
     </button>
   )
 }
 
-export default SubmitBtn;
+export default Button;

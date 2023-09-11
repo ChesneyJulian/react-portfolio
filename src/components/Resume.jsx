@@ -1,16 +1,12 @@
 import resumePdf from '/assets/Resume.pdf'
-
+import Button from './UI/Button'
 function Resume() {
   return (
     <>
       <h3 className='text-3xl font-semibold mb-8'>Resume</h3>
       <div className='mb-8'>
         <a href={resumePdf} download='Chesney-Julian-Resume.pdf' className=''>
-          <button
-          type="download"
-          className="py-2 px-4 bg-[#057d69] hover:bg-[#05ab8f] rounded my-8" >
-            Download Resume
-          </button>
+          <Button type='download' title='Download Resume' />
         </a>
       </div>
       <div>

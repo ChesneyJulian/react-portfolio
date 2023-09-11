@@ -43,7 +43,7 @@ function Project() {
     <>
       {projectData.map((item) => (
         <div key={item.name} className="container relative h-auto w-auto m-4">
-            <img className="aspect-square object-cover object-top rounded z-10" src={item.image}></img>
+            <img className="aspect-square object-cover object-top rounded z-10" src={item.image} alt={`image of ${item.name}`}></img>
             <div className="overlay opacity-0 hover:opacity-90 bg-gray-800 absolute top-0 h-full w-full transition duration-300 ease-in-out">
                 <div className="flex flex-col items-start justify-end h-full w-full tracking-tight px-2 pb-8 leading-7">
                   <p className="text-xl font-semibold underline underline-offset-4 decoration-1">{item.name}</p>

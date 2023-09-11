@@ -1,8 +1,8 @@
 function Footer() {
   return (
-    <div className="flex align-end gap-4">
-      <a className="text-xl font-light text-gray-400 hover:text-[#057d69]" href="https://github.com/ChesneyJulian" target="_blank" rel="noreferrer">GitHub</a>
-      <a className="text-xl font-light text-gray-400 hover:text-[#057d69]" href="https://www.linkedin.com/in/chesney-julian/" target="_blank" rel="noreferrer">LinkedIn</a>
+    <div className="flex align-end gap-8">
+      <a href="https://github.com/ChesneyJulian" target="_blank" rel="noreferrer"><img className="aspect-square object-fit w-10" src="/images/icons/github-mark-white.png" alt="github icon" /></a>
+      <a href="https://www.linkedin.com/in/chesney-julian/" target="_blank" rel="noreferrer"><img className="aspect-square object-fit w-10" src="/images/icons/linkedin.png" alt="linked in icon" /></a>
       {/* no social media to provide link to so ask what to do  */}
     </div>
   )

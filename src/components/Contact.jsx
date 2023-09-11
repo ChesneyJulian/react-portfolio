@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Instruction, EmailInvalid } from './UI/Informants'
-import SubmitBtn from './UI/Buttons'
+import Button from './UI/Button'
 
 export default function Contact() {
   const [ nameValue, setNameValue ] = useState('');
@@ -98,7 +98,7 @@ export default function Contact() {
         <div>
           {checkInsDisplay()}
           {checkEmailDisplay()}
-          <SubmitBtn />
+          <Button type='submit' title='Submit'/>
         </div>
       </form>
     </div>
